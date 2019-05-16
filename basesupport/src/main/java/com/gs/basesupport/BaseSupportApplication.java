@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.multidex.MultiDex;
+import com.gs.basesupport.broadcast.NetStateReceiver;
 
 /**
  * @author husky
@@ -24,6 +25,7 @@ public class BaseSupportApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        NetStateReceiver.registerNetworkStateReceiver(this);
         managerActivity();
     }
 

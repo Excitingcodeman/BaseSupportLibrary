@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
+import com.gs.basesupport.event.BusFactory;
 
 /**
  * @author husky
@@ -84,5 +85,26 @@ public abstract class BaseSupportFragment<VB extends ViewDataBinding> extends Fr
      */
     protected void lazyLoadData() {
         isLoadData = true;
+    }
+
+
+    protected boolean useEventBus() {
+        return false;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (useEventBus()){
+            BusFactory.getBus().register(this);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (useEventBus()){
+            BusFactory.getBus().unregister(this);
+        }
     }
 }

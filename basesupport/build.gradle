@@ -36,6 +36,7 @@ dependencies {
     api rootProject.ext.dependencies["core-ktx"]
     api rootProject.ext.dependencies["rxpermissions2"]
     api rootProject.ext.dependencies["eventbus"]
+    api rootProject.ext.dependencies["lifecycle-extensions"]
     testImplementation rootProject.ext.dependencies["junit"]
     androidTestImplementation rootProject.ext.dependencies["test-runner"]
     androidTestImplementation rootProject.ext.dependencies["test-espresso"]
