@@ -28,13 +28,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api rootProject.ext.dependencies["appcompat"]
-    api rootProject.ext.dependencies["annotation"]
-    api rootProject.ext.dependencies["core-ktx"]
-    api rootProject.ext.dependencies["rxpermissions2"]
-    api rootProject.ext.dependencies["eventbus"]
-    api rootProject.ext.dependencies["lifecycle-extensions"]
-    api rootProject.ext.dependencies["design"]
+    compileOnly rootProject.ext.dependencies["appcompat"]
+    compileOnly rootProject.ext.dependencies["annotation"]
+    compileOnly rootProject.ext.dependencies["core-ktx"]
+    compileOnly rootProject.ext.dependencies["rxpermissions2"]
+    compileOnly rootProject.ext.dependencies["eventbus"]
+    compileOnly rootProject.ext.dependencies["lifecycle-extensions"]
+    compileOnly rootProject.ext.dependencies["design"]
     testImplementation rootProject.ext.dependencies["junit"]
     androidTestImplementation rootProject.ext.dependencies["test-runner"]
     androidTestImplementation rootProject.ext.dependencies["test-espresso"]
