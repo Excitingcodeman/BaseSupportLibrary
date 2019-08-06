@@ -25,9 +25,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api rootProject.ext.dependencies["appcompat"]
-    api rootProject.ext.dependencies["core-ktx"]
-    api rootProject.ext.dependencies["constraintlayout"]
+    implementation rootProject.ext.dependencies["appcompat"]
+    implementation rootProject.ext.dependencies["core-ktx"]
+    implementation rootProject.ext.dependencies["constraintlayout"]
+    implementation rootProject.ext.dependencies["annotation"]
     testImplementation rootProject.ext.dependencies["junit"]
     androidTestImplementation rootProject.ext.dependencies["test-runner"]
     androidTestImplementation rootProject.ext.dependencies["test-espresso"]

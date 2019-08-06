@@ -1,7 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
@@ -31,12 +28,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api rootProject.ext.dependencies["appcompat"]
+    api rootProject.ext.dependencies["annotation"]
     api rootProject.ext.dependencies["core-ktx"]
     api rootProject.ext.dependencies["rxpermissions2"]
     api rootProject.ext.dependencies["eventbus"]
     api rootProject.ext.dependencies["lifecycle-extensions"]
+    api rootProject.ext.dependencies["design"]
     testImplementation rootProject.ext.dependencies["junit"]
     androidTestImplementation rootProject.ext.dependencies["test-runner"]
     androidTestImplementation rootProject.ext.dependencies["test-espresso"]

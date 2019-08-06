@@ -138,6 +138,12 @@ public abstract class BaseSupportActivity<VB extends ViewDataBinding> extends Ap
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        NetStateReceiver.removeRegisterObserver(mNetChangeObserver);
+        super.onDestroy();
+    }
+
     protected boolean useEventBus() {
         return false;
     }

@@ -27,13 +27,16 @@ public class NetUtils {
         if (null != mgr) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 Network[] networks = mgr.getAllNetworks();
-                NetworkInfo networkInfo;
-                for (Network mNetwork : networks) {
-                    networkInfo = mgr.getNetworkInfo(mNetwork);
-                    if (null != networkInfo && networkInfo.getState().equals(NetworkInfo.State.CONNECTED)) {
-                        return true;
+                if (null != networks) {
+                    NetworkInfo networkInfo;
+                    for (Network mNetwork : networks) {
+                        networkInfo = mgr.getNetworkInfo(mNetwork);
+                        if (null != networkInfo && networkInfo.getState().equals(NetworkInfo.State.CONNECTED)) {
+                            return true;
+                        }
                     }
                 }
+
             } else {
                 NetworkInfo[] info = mgr.getAllNetworkInfo();
                 if (info != null) {

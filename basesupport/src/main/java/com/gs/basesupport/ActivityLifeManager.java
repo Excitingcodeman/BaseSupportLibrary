@@ -14,7 +14,7 @@ public class ActivityLifeManager {
     private List<Activity> activityStack;
 
     private ActivityLifeManager() {
-        activityStack = Collections.synchronizedList(new LinkedList<Activity>());
+        activityStack = Collections.synchronizedList(new LinkedList<>());
     }
 
 
@@ -34,7 +34,7 @@ public class ActivityLifeManager {
      */
     public void addActivity(Activity activity) {
         if (activityStack == null) {
-            activityStack = Collections.synchronizedList(new LinkedList<Activity>());
+            activityStack = Collections.synchronizedList(new LinkedList<>());
 
 
         }
@@ -44,7 +44,7 @@ public class ActivityLifeManager {
     /**
      * 获取当前的Activity
      *
-     * @return
+     * @return 获取当前的Activity
      */
     public Activity getCurrentActivity() {
         if (null == activityStack || activityStack.size() <= 0) {

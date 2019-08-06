@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+
 import java.util.ArrayList;
 
 /**
@@ -13,8 +14,6 @@ import java.util.ArrayList;
  */
 public class NetStateReceiver extends BroadcastReceiver {
     private final static String ANDROID_NET_CHANGE_ACTION = "android.net.conn.CONNECTIVITY_CHANGE";
-    private final static String TAG = NetStateReceiver.class.getSimpleName();
-
     private static boolean isNetAvailable = false;
 
     private static NetType mNetType;
@@ -38,12 +37,10 @@ public class NetStateReceiver extends BroadcastReceiver {
         mBroadcastReceiver = this;
         if (ANDROID_NET_CHANGE_ACTION.equalsIgnoreCase(intent.getAction())) {
             if (!NetUtils.isNetworkAvailable(context)) {
-
                 isNetAvailable = false;
             } else {
                 isNetAvailable = true;
                 mNetType = NetUtils.getAPNType(context);
-
             }
             notifyObserver();
         }
@@ -117,7 +114,7 @@ public class NetStateReceiver extends BroadcastReceiver {
      */
     public static void registerObserver(NetChangeObserver observer) {
         if (mNetChangeObservers == null) {
-            mNetChangeObservers = new ArrayList<NetChangeObserver>();
+            mNetChangeObservers = new ArrayList<>();
         }
         mNetChangeObservers.add(observer);
     }
